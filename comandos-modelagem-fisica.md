@@ -19,7 +19,7 @@ CREATE TABLE usuarios(
 );
 ```
 
-# Criar tabela de notícias
+## Criar tabela de notícias
 
 ```sql
 CREATE TABLE noticias(
