@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 14/11/2023 às 21:27
+-- Tempo de geração: 16/11/2023 às 21:34
 -- Versão do servidor: 10.4.28-MariaDB
 -- Versão do PHP: 8.2.4
 
@@ -39,15 +39,6 @@ CREATE TABLE `noticias` (
   `usuario_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Despejando dados para a tabela `noticias`
---
-
-INSERT INTO `noticias` (`id`, `data`, `titulo`, `texto`, `resumo`, `imagem`, `usuario_id`) VALUES
-(1, '2023-11-14 16:21:11', 'Descoberto oxigênio em Vênus', 'Nesta manhã, em um belo dia para a astronomia, foi feita uma descoberta incrível e muito bacana demais da conta que legal...', 'Recentemente o telescópio no Havaí encontrou traços de oxigênio no planeta', 'venus.jpg', 1),
-(2, '2023-11-14 16:36:52', 'Nova versão do VSCode', 'A Microsoft trouxe recursos de Inteligência Artificial...', 'Recentemente o VSCode foi atualizado...', 'vscode.png', 4),
-(3, '2023-11-14 16:36:52', 'Onda de calor no Brasil', 'Efeitos do aquecimento global estão prejudicando a vida...', 'Temperaturas muito acima da média', 'sol.svg', 1);
-
 -- --------------------------------------------------------
 
 --
@@ -67,9 +58,7 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`id`, `nome`, `email`, `senha`, `tipo`) VALUES
-(1, 'Tiago B. dos Santos', 'tiago@gmail.com', '123senac', 'admin'),
-(3, 'Beltrano Soares', 'beltrano@msn.com', '000penha', 'admin'),
-(4, 'Chapolin Colorado', 'chapolin@vingadores.com.br', 'marreta', 'admin');
+(1, 'Tiago B. dos Santos', 'tiago@msn.com', '$2y$10$vSVqZ7uect4bZEGvpr0EoOkQhjRv.Rf9beB4AXQ28g6yOrYhX/W1q', 'admin');
 
 --
 -- Índices para tabelas despejadas
@@ -97,13 +86,13 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de tabela `noticias`
 --
 ALTER TABLE `noticias`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de tabela `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- Restrições para tabelas despejadas
