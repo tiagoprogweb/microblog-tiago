@@ -7,6 +7,35 @@ $id = $_GET['id'];
 
 // Chamando a função e guardando o retorno dela
 $usuario = lerUmUsuario($conexao, $id);
+
+// Verificando se o formulário foi acionado
+if(isset($_POST['atualizar'])){
+	// Capturando os dados
+	$nome = $_POST['nome'];
+	$email = $_POST['email'];
+	$tipo = $_POST['tipo'];
+
+	/* Lógica para a senha
+	Se o campo senha estiver vazio OU se a senha digitada
+	for igual à senha que já existe no banco de dados, então
+	significa que o usuário NÃO ALTEROU A SENHA. Portanto,
+	devemos MANTER a senha existente. */
+	if( empty($_POST['senha']) || 
+		password_verify($_POST['senha'], $usuario['senha'] ) ) {
+		
+		$senha = $usuario['senha']; // mantemos a mesma
+	} else {
+		/* Caso contrário, pegaremos a senha nova digitada
+		e a CODIFICAMOS antes de mandar para o banco. */
+		$senha = password_hash($_POST['senha'], PASSWORD_DEFAULT);
+	}
+
+	// Chamamos a função e passamos os dados
+	atualizarUsuario($conexao, $id, $nome, $email, $senha, $tipo);
+
+	// Redirecionamos para a página de usuarios
+	header("location:usuarios.php");
+}
 ?>
 
 <div class="row">
