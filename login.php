@@ -3,6 +3,23 @@ require "inc/funcoes-sessao.php";
 require "inc/funcoes-usuarios.php"; 
 require "inc/cabecalho.php"; 
 
+/* Mensagens de feedback de acordo com 
+os parâmetros de URL */
+if(isset($_GET['acesso_negado'])){
+	$mensagem = "Você deve logar primeiro!";
+
+} elseif(isset($_GET['dados_incorretos'])){
+	$mensagem = "Dados incorretos, verifique!";
+
+} elseif(isset($_GET['saiu'])){
+	$mensagem = "Você saiu do sistema!";
+
+} elseif(isset($_GET['campos_obrigatorios'])){
+	$mensagem = "Preencha e-mail e senha!";
+}
+
+
+
 if(isset($_POST['entrar'])){
 	
 	/* VALIDAÇÃO 2º NÍVEL: BACK-END */
@@ -20,9 +37,22 @@ if(isset($_POST['entrar'])){
 	se existe um usuário cadastrado */
 	$usuario = buscaUsuario($conexao, $email);
 
-	echo "<pre>";
-	var_dump($usuario);
-	echo "</pre>";
+	/* Verificação de usuario e senha 
+	Se usuario existe (diferente de null) E a verificação da senha
+	der certo (password_verify) */
+	if($usuario != null && password_verify($senha, $usuario['senha'])){
+		// Então, inicie o processo de login
+		login($usuario['id'], $usuario['nome'], $usuario['tipo']);
+
+		// Redirecione para a index administrativa
+		header("location:admin/index.php");
+
+		exit; // pare qualquer outro script
+	} else {
+		// Caso contrário, senha está errada (mas não diga...)
+		header("location:login.php?dados_incorretos");
+		exit;
+	}
 	
 } // fim if isset entrar
 ?>
@@ -33,9 +63,12 @@ if(isset($_POST['entrar'])){
 
         <form action="" method="post" id="form-login" name="form-login" class="mx-auto w-50" autocomplete="off">
 
+
+				<?php if( isset($mensagem) ){ ?>
 				<p class="my-2 alert alert-warning text-center">
-					Mensagens de feedback...
-				</p>                
+					<?=$mensagem?>
+				</p>          
+				<?php } ?>      
 
 				<div class="mb-3">
 					<label for="email" class="form-label">E-mail:</label>
