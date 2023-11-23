@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 23/11/2023 às 17:04
+-- Tempo de geração: 23/11/2023 às 21:29
 -- Versão do servidor: 10.4.28-MariaDB
 -- Versão do PHP: 8.2.4
 
@@ -38,6 +38,14 @@ CREATE TABLE `noticias` (
   `imagem` varchar(45) NOT NULL,
   `usuario_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Despejando dados para a tabela `noticias`
+--
+
+INSERT INTO `noticias` (`id`, `data`, `titulo`, `texto`, `resumo`, `imagem`, `usuario_id`) VALUES
+(1, '2023-11-23 17:13:38', 'aaaa', 'aaaa', 'aaaa', 'dog.jpg', 1),
+(2, '2023-11-23 17:17:29', 'Vai chover!', 'Está chovendo', 'Acabou a chuva', 'loira.jpg', 2);
 
 -- --------------------------------------------------------
 
@@ -88,7 +96,7 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de tabela `noticias`
 --
 ALTER TABLE `noticias`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de tabela `usuarios`

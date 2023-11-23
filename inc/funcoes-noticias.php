@@ -2,11 +2,17 @@
 require "conecta.php";
 
 /* Usada em noticia-insere.php */
-function inserirNoticia($conexao){
-    
+function inserirNoticia($conexao, $titulo, $texto, 
+    $resumo, $nomeImagem, $usuarioId){
 
-    // mysqli_query($conexao, $sql) or die(mysqli_error($conexao));
+    $sql = "INSERT INTO noticias(
+                titulo, texto, resumo, imagem, usuario_id
+            ) VALUES(
+                '$titulo', '$texto', '$resumo', 
+                '$nomeImagem', $usuarioId
+            )";    
 
+    mysqli_query($conexao, $sql) or die(mysqli_error($conexao));
 } // fim inserirNoticia
 
 
@@ -31,7 +37,7 @@ function upload($arquivo){
     }
 
     // Obtendo apenas o nome/extensão do arquivo
-    $nome = $arquivo['name'];
+    $nome = $arquivo['name']; 
 
     // Obtendo informações de acesso temporário
     $temporario = $arquivo['tmp_name'];
