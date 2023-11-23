@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 16/11/2023 às 21:34
+-- Tempo de geração: 23/11/2023 às 17:04
 -- Versão do servidor: 10.4.28-MariaDB
 -- Versão do PHP: 8.2.4
 
@@ -58,7 +58,9 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`id`, `nome`, `email`, `senha`, `tipo`) VALUES
-(1, 'Tiago B. dos Santos', 'tiago@msn.com', '$2y$10$vSVqZ7uect4bZEGvpr0EoOkQhjRv.Rf9beB4AXQ28g6yOrYhX/W1q', 'admin');
+(1, 'Tiago', 'tiago@gmail.com', '$2y$10$91O51weAzi9Vxql07c2jO..4dF0.D03EgU3re4sH7.izXBeM4N0TW', 'admin'),
+(2, 'Bernardo', 'bernardo@gmail.com', '$2y$10$lJ0UDDMmnDx.td86W6.A6eidgB7FD8FFUZuwfcJXNTeB2fH9Ooa.u', 'editor'),
+(5, 'Ozzy Osbourne', 'ozzy@bs.com', '$2y$10$N.pwiLSzyu1teZFLZ2Bigu1MeP3x8IvanH/LjxGzLyeKK8QYkPrma', 'admin');
 
 --
 -- Índices para tabelas despejadas
@@ -92,7 +94,7 @@ ALTER TABLE `noticias`
 -- AUTO_INCREMENT de tabela `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- Restrições para tabelas despejadas
