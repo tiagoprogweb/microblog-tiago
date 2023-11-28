@@ -1,5 +1,19 @@
-<?php 
+<?php // admin/noticias.php
+require_once "../inc/funcoes-noticias.php";
 require_once "../inc/cabecalho-admin.php";
+
+// id do usuário logado
+$idUsuario = $_SESSION['id'];
+
+// tipo do usuário logado
+$tipoUsuario = $_SESSION['tipo'];
+
+// Chamando a função e passando os parâmetros
+$listaDeNoticias = lerNoticias($conexao, $idUsuario, $tipoUsuario);
+
+echo "<pre>";
+var_dump($listaDeNoticias);
+echo "</pre>";
 ?>
 
 
