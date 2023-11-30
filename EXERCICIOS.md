@@ -19,3 +19,11 @@ Fora isso, você deve programar o comando SQL usando junção (JOIN) entre as ta
 Dica: veja a programação feita na área administrativa na página **admin/noticias.php**.
 
 A função deve retornar **UM ARRAY ASSOCIATIVO**.
+
+## Parte 3: exibição da notícia escolhida
+
+Volte para a página pública **noticia.php**, teste a sua variável **dadosDaNoticia** usando pre e var_dump.
+
+Se o teste foi bem sucedido (apareceu os dados da noticia escolhida), então faça os dados aparecem no HTML (titulo, texto, data, imagem e o autor).
+
+Não é necessário usar loop/foreach.
