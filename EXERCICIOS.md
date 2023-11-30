@@ -1,6 +1,6 @@
 # Exercícios da área pública do site
 
-## Parte 1: carregamento dos dados de uma notícia selecionada (clica) pelo usuário
+## Parte 1: carregamento dos dados de uma notícia selecionada (clicada) pelo usuário
 
 Quando o usuário clica em uma notícia na página **index.php**, é aberta a página **noticia.php** e ela deverá receber o **id** da notícia que o usuário escolheu.
 
